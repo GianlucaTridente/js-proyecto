@@ -34,7 +34,7 @@ console.log("Agustin tuvo " + agustin + " voto"); */
 
 
 /* simulador interactivo */
-/* calcular coutas*/
+/* calcular cuotas*/
 
 alert ("Cuotas sin interes");
 
