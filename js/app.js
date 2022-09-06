@@ -357,6 +357,287 @@ console.log(productos); */
 
 
 
+
+//funcion de orden superior : es aquella que bien retorna una funcion, o recibe una funcion por paramentro
+
+
+/* function mayorQue(n){
+    return (m) => m > n;
+}
+
+let mayorQueDoce = mayorQue(12); */ // (m)+> m > 12
+
+/* console.log(mayorQueDoce(13)); */ // (13)=> 13 > 12 true
+/* console.log(mayorQueDoce(4));  */// (4) => 4 > 12 false
+
+
+
+
+/* function asignarOp (op){
+    if (op == "sumar"){
+        return (n1, n2)=> n1 + n2;
+    }else if (op == "restar"){
+        return (n1, n2)=> n1 - n2;
+    }
+}
+
+let suma = asignarOp("sumar"); */
+/* console.log(suma(12, 5)); */
+
+
+
+//recibir funciones por parametros
+
+
+/* const nombres = ["Hugo", "Paco", "Luis"];
+const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 12, 23, 21, 4, 543, 4, 6];
+ */
+
+
+/* function porCadaUno(arr, fn){
+    for (const element of arr) {
+        fn(element);
+    }
+} */
+
+/* porCadaUno(numeros, console.log) */ // console.log(numeros)
+
+/* const duplicado = []; */
+
+
+/* porCadaUno(numeros,(element)=>{
+    duplicado.push(element * 2);
+}) */
+/* 
+console.log(numeros);
+console.log(duplicado); */
+
+
+
+//metodos de busqueda y trasformacion (arrays)
+//forEach
+
+
+/* numeros.forEach() */
+
+
+//recorre todos los elementos
+
+/* numeros.forEach((num)=>{ 
+    duplicado.push(num*2);
+}) */
+
+
+//find : recibe una funcion de comparacion por parametros y te devuelve un true o false si esta dentro de la array .... devuelve el primer elemento que encuetra y se detiene
+
+
+/* const productos = [
+    { id: 1, nombre: "Arroz", precio: 124},
+    { id: 2, nombre: "Papa", precio: 90},
+    { id: 3, nombre: "Tomate", precio: 204},
+    { id: 4, nombre: "Morron", precio:870},
+    { id: 5, nombre: "Pan", precio: 240},
+    { id: 5, nombre: "Fideos", precio: 124},
+];
+
+
+let encontrado = productos.find(el =>{
+    return el.precio > 200;
+})
+
+
+console.log(encontrado);
+
+console.log(encontrado.precio = 400); */
+
+
+
+//filter : devuelve un nuevo array con los elementos que cumplan con la condicion que les pases
+
+
+/* const mayorPrecio = productos.filter(el=>{
+    return el.precio > 200;
+})
+
+console.log(mayorPrecio); */
+
+
+// some
+
+
+/* let ingreso =  prompt ("ingrese un producto");
+
+
+const existe = productos.some(productos=>{
+    return productos.nombre === ingreso
+})
+
+alert(existe);
+
+ */
+
+
+//map : crea un nuevo array pero con los valores que yo le pase como condicion
+
+
+/* const nombr = productos.map(prod=>{
+    return prod.nombre
+} )
+
+console.log(nombr); // salen todos los elementos
+
+
+const actualizarPrecios = productos.map(prod=>{
+    return{
+        id : prod.id,
+        nombre: prod.nombre,
+        precio: prod.precio*2.5,
+    };
+})
+
+console.log(actualizarPrecios) */;
+
+
+
+// reduce :  recorre todos los elemetos de los arrays, los guarda en un acumulador y le suma el precio -- el 0 es para que inicie en 0 omg
+
+
+/* const total  = productos.reduce((acc, el)=>{
+    return acc + el.precio
+},0)
+
+console.log(total); */
+
+
+
+
+//math
+
+
+
+/* console.log(Math.PI); */
+
+/* console.log(Math.max(12, 33.45, 24, 21, 34, 2));
+
+console.log(Math.min(12, 33.45, 24, 21, 34, 2)); */
+
+/* console.log(Math.ceil(3.64)); */ //redondea un valor al mas proximo
+
+/* console.log(Math.floor(3.64)); */ //redondea para abajo
+
+/* console.log(Math.round(4.7)); */ //redondea para arriba o abajo dependianedo del numero despues del .
+
+/* console.log(Math.sqrt(4)); */ //calcula raiz cuadrada
+
+/* console.log(Math.random()); */ //numero random entre el 0 y el 1
+
+/* console.log(Math.floor(Math.random()*10)) */ //rendear un numero random
+
+
+
+
+//dom 
+
+
+/* console.dir(document.body); */
+
+//innerHTML
+
+
+/* h2.innerHTML = "<em> Soy un innerHTML </em>"; */
+
+/* const h2 = document.getElementById('h2');
+console.log(h2);
+console.log(h2.innerHTML); */
+
+/* const parrafo = document.getElementsByTagName('p');
+console.log(parrafo);
+console.log(parrafo[0].innerHTML);
+
+const parrafo1 = document.getElementsByClassName('parrafos');
+console.log(parrafo1);
+console.log(parrafo1[1].innerHTML);
+
+
+const contenedor = document.getElementById('contenedor')
+
+
+for (const parrafo of parrafo1){
+    console.log(parrafo.innerHTML);
+} */
+
+
+
+//innerText   : modifica el texto
+
+
+/* console.log(parrafo[0].innerText= "Cambio de texto");
+
+let ingresa = prompt ("ingresa tu nombre");
+parrafo[2].innerHTML = "Bienvenido " + ingresa; */
+
+
+
+
+//createElement
+
+/* const texto = document.createElement('p');
+
+texto.innerText = "soy un parrafo creado en js"; */
+
+//document.body.append(texto)
+
+//appen es para que aparezca en el html
+
+
+/* contenedor.append(texto);
+
+
+const input = document.getElementById('ingr');
+
+input.value= 'ingr';
+
+
+const ul = document.getElementById('lista');
+
+const nombreesss = ["Hugo", "Paco", "Luis"];
+
+for (const nombress of nombreesss) {
+    let li = document.createElement('li');
+    li.innerText = nombress;
+    ul.append(li)
+}
+
+const productooo = {id: 1, nombre: "tela", precio: 200}
+
+let concatenado = "Id: " + productooo.id + " Nombre: " + productooo.nombre +  " precio: " + productooo.precio; */
+
+
+// sintaxis para reemplazar lo de arriba
+
+/* let templatestLiterals = `Id ${productooo.id}
+nombre: ${productooo.nombre} precio: ${productooo.precio}
+` */
+
+// altgr + } = ``
+
+
+
+/* for (const servicio of servicios) {
+    let li = document.createElement('li');
+    li.innerHTML= `
+    <h3>${servicio.nombre}</h3>
+    <p>${servicio.precio}</p>
+    <img src= "" 
+    `
+}
+ */
+
+
+
+
+
+
 // comida para puesto
 
 
@@ -377,12 +658,13 @@ let nombreComida = prompt("Ingresa el nombre de la comida");
 let precioComida = prompt ("Ingresa el precio de la comida");
 let pesoComida = prompt("Ingresa el peso de la comida");
 
-const comidaNueva = new Producto (nombreComida, precioComida, pesoComida)
 
+const comidaNueva = new Producto (nombreComida, precioComida, pesoComida);
 
 function CargarProductos (producto){
    return productos.push(producto);
 }
+
 
 CargarProductos(hamburguesa);
 CargarProductos(pizza);
@@ -392,3 +674,37 @@ CargarProductos(comidaNueva);
 for (const propiedad of productos){
     console.log(propiedad);
 }
+
+let siono = prompt("desea buscar un producto ponga: si, sino ponga : no")
+
+
+if (siono == "si"){
+
+    let buscar = prompt("Ingrese que comida quiere buscar");
+
+    let encontrado = productos.some(el =>{
+    return el.nombre == buscar;
+    })
+    if (encontrado == true){
+    alert ("Se encuentra su comida disponible")
+}else{
+    alert("No esta disponible")
+}
+}
+
+let cambio = prompt("Ingrese si o no dependiendo si desea sumarle una cantidad al precio de todoas las comidas"); 
+if (cambio = "si"){
+    let nuevoPrecio = prompt("ingrese el nuevo precio")
+    const actualizarPrecios = productos.map(prod=>{
+    return{
+        nombre: prod.nombre,
+        precio: prod.precio+nuevoPrecio,
+    };
+})
+console.log(actualizarPrecios);
+}
+
+
+
+
+
