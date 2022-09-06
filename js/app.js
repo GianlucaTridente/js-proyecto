@@ -694,7 +694,7 @@ if (siono == "si"){
 
 let cambio = prompt("Ingrese si o no dependiendo si desea sumarle una cantidad al precio de todoas las comidas"); 
 if (cambio = "si"){
-    let nuevoPrecio = prompt("ingrese el nuevo precio")
+    let nuevoPrecio = parseInt(prompt("ingrese el nuevo precio"))
     const actualizarPrecios = productos.map(prod=>{
     return{
         nombre: prod.nombre,
