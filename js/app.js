@@ -1,65 +1,39 @@
 // comida para puesto
 
 
-const hamburguesa = {nombre:"Hamburguesa",  precio: 1800, peso:500}
-const productos = [];
+const comidas = [
+    {id: 1, nombre: "Hamburguesa", precio: 1292, peso:1000, img: "hamburguesa.jpg"},
+    {id: 2, nombre: "Pizza", precio : 1300, peso: 700, img: "pizza.jpg"},
+    {id: 3, nombre: "Papas fritas", precio: 1100, img: "papas-fritas.jpg"},
+
+];
 
 
-function Producto (nombre, precio, peso){
-    this.nombre = nombre;
-    this.precio = parseFloat(precio);
-    this.peso = peso;
-}
+const h3 = document.getElementById('usuario');
+
+const contenedor = document.getElementById('contenedor');
+
+let ingreso = prompt('Ingresa tu nombre de usuario');
+
+const input = document.getElementById('ingreso');
+input.value = 'ingrese';
 
 
-const pizza = new Producto ('Pizza', 1000, 500);
+h3.innerText = "Bienvenido " + ingreso + ", estos son nuestros productos";
 
-let nombreComida = prompt("Ingresa el nombre de la comida");
-let precioComida = prompt ("Ingresa el precio de la comida");
-let pesoComida = prompt("Ingresa el peso de la comida");
+const ul = document.getElementById('lista');
 
 
-const comidaNueva = new Producto (nombreComida, precioComida, pesoComida);
+for (const servicio of comidas) {
+    let li = document.createElement('li');
 
-function CargarProductos (producto){
-   return productos.push(producto);
-}
-
-
-CargarProductos(hamburguesa);
-CargarProductos(pizza);
-CargarProductos(comidaNueva);
-
-
-for (const propiedad of productos){
-    console.log(propiedad);
-}
-
-let siono = prompt("desea buscar un producto ponga: si, sino ponga : no")
-
-
-if (siono == "si"){
-
-    let buscar = prompt("Ingrese que comida quiere buscar");
-
-    let encontrado = productos.some(el =>{
-    return el.nombre == buscar;
-    })
-    if (encontrado == true){
-    alert ("Se encuentra su comida disponible")
-}else{
-    alert("No esta disponible")
-}
-}
-
-let cambio = prompt("Ingrese si o no dependiendo si desea sumarle una cantidad al precio de todoas las comidas"); 
-if (cambio = "si"){
-    let nuevoPrecio = parseInt(prompt("ingrese el nuevo precio"))
-    const actualizarPrecios = productos.map(prod=>{
-    return{
-        nombre: prod.nombre,
-        precio: prod.precio+nuevoPrecio,
-    };
-})
-console.log(actualizarPrecios);
+    li.innerHTML = `
+    <div class= "card">
+        <h3>${servicio.nombre}</h3>
+        <p>precio: ${servicio.precio}</p>
+        <p>peso: ${servicio.peso}</p>
+        <img src="./img/${servicio.img}" alt="comida">
+    </div>
+    `
+    ul.append(li);
 }
