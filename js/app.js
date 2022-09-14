@@ -9,14 +9,19 @@ const comidas = [
 ];
 
 
+const botonBuscar = document.querySelector('#btn-buscar');
+const busqueda = document.createElement('div');
+
+const h2 = document.getElementById("h2");
+h2.innerText= "Eventos";
+
 const h3 = document.getElementById('usuario');
 
 const contenedor = document.getElementById('contenedor');
 
 let ingreso = prompt('Ingresa tu nombre de usuario');
 
-const input = document.getElementById('ingreso');
-input.value = 'ingrese';
+
 
 
 h3.innerText = "Bienvenido " + ingreso + ", estos son nuestros productos";
@@ -37,3 +42,160 @@ for (const servicio of comidas) {
     `
     ul.append(li);
 }
+
+
+
+for (const comidass of comidas) {
+    comidass.nombre;
+    console.log(comidas);
+}
+
+botonBuscar.addEventListener ('click', (e)=>{
+    e.preventDefault();  
+    const input = document.getElementById('ingreso').value;
+    function buscadorNombreComida(arr, comidass){
+        let encontrado = arr.find((el)=>{
+            return el.nombre == comidass; 
+        });
+        return encontrado;
+    
+}
+
+buscadorNombreComida()
+
+const encontrado = buscadorNombreComida(comidas,input);
+
+const divEncontrado = document.createElement('div');
+divEncontrado.innerHTML = `
+<div>
+    <h2>Se encuentra ${encontrado.nombre}</h2>
+</div>
+`
+busqueda.append(divEncontrado);
+console.log(arr);
+});
+
+
+
+
+
+/* function filtrarComidas(arr, filtro){
+   const filtrado = arr.filter ((el)=>{
+    return el.nombre.includes(filtro);
+   });
+    return filtrado;
+}
+
+
+botonBuscar.addEventListener("click", ()=>{
+    
+    let resultado = filtrarComidas(comidas.nombre, input.value);
+    console.log(resultado);
+    body.append(busqueda);
+})
+ */
+
+
+/* for (const comidass of comidas) {
+        comidass.nombre;
+    } */
+
+
+
+/* botonBuscar.addEventListener ('click', (e)=>{
+    e.preventDefault();   */
+
+
+
+ /*    botonBuscar.addEventListener ('click', (e)=>{
+        e.preventDefault();  
+    function buscadorNombreComida(arr, comidass){
+        let encontrado = arr.find((el)=>{
+            return el.nombre == comidass; 
+        });
+        return encontrado;
+    }
+    buscadorNombreComida()
+    
+    const encontrado = buscadorNombreComida(comidas,input);
+    
+    const divEncontrado = document.createElement('div');
+    divEncontrado.innerHTML = `
+    <div>
+        <h2>Se encuentra ${encontrado.nombre}</h2>
+    </div>
+    `
+    busqueda.append(divEncontrado);
+    });
+
+function buscadorNombreComida(arr, comidass){
+    let encontrado = arr.find((el)=>{
+        return el.nombre == comidass; 
+    });
+    return encontrado;
+}
+
+const encontrado = buscadorNombreComida(comidas,input);
+
+const divEncontrado = document.createElement('div');
+divEncontrado.innerHTML = `
+<div>
+    <h2>Se encuentra ${encontrado.nombre}</h2>
+</div>
+`
+busqueda.append(divEncontrado);
+}); */
+
+
+
+
+
+/* botonBuscar.addEventListener ('click', (e)=>{
+    e.preventDefault();  
+function buscadorNombreComida(arr, comidass){
+    let encontrado = arr.find((el)=>{
+        return el.nombre == comidass; 
+    });
+    return encontrado;
+}
+buscadorNombreComida()
+
+const encontrado = buscadorNombreComida(comidas,input);
+
+const divEncontrado = document.createElement('div');
+divEncontrado.innerHTML = `
+<div>
+    <h2>Se encuentra ${encontrado.nombre}</h2>
+</div>
+`
+busqueda.append(divEncontrado);
+}); */
+
+
+
+
+/* botonBuscar.addEventListener ('click', (e)=>{
+    e.preventDefault(); 
+    const input = document.getElementById('ingreso').value; 
+function buscadorNombreComida(arr, comidass){
+    let encontrado = arr.find((el)=>{
+        return el.nombre == comidass; 
+    });
+    return encontrado;
+}
+
+const encontrado = buscadorNombreComida(comidas,input);
+
+const divEncontrado = document.createElement('div');
+divEncontrado.innerHTML = `
+<div>
+    <h2>Se encuentra ${encontrado.nombre}</h2>
+</div>
+`
+busqueda.append(divEncontrado);
+buscadorNombreComida()
+});
+ */
+
+
+
