@@ -6,15 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Js</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <h2 id="h2">Comidas 😎</h2>
     <h3 id="usuario"></h3>
-    <input type="text"  id="ingreso">
-    <button id="btn-buscar">Buscar</button>
-    <ul id="lista">
+    <div class="registro">
+        <form action="">
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+            </div>
+            <div>
+                <label for="userRegis">usuario</label>
+                <input type="text" name="" id="userRegis">
+            </div>
+            <div>
+                <label for="email">Password</label>
+                <input type="password" name="password" id="password"> 
+            </div>
+            <div>
+                <label for="checkbox">
+                    Recordar
+                    <input type="checkbox" name="" id="checkbox">
+                </label>
+            </div>
+            <div>
+                <input type="submit" name="" id="btnIngresar">
+            </div>
+        </form>
+    </div>
+    <div class="conteiner-busc">
+        <div class="buscador">
+            <input type="text"  id="ingreso">
+            <button id="btn-buscar" class="fa-solid fa-magnifying-glass"></button>
+        </div>
+    </div>
+    <div id="aparecer"></div>
 
+    </body>
+    <ul id="lista">
     </ul>
+
+<script src="https://kit.fontawesome.com/e5193a5dee.js" crossorigin="anonymous"></script>
 <script src="./js/app.js"></script>
 </body>
 </html>

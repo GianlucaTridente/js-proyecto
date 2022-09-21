@@ -1,6 +1,5 @@
 // comida para puesto
 
-
 const comidas = [
     {id: 1, nombre: "Hamburguesa", precio: 1292, peso:1000, img: "hamburguesa.jpg"},
     {id: 2, nombre: "Pizza", precio : 1300, peso: 700, img: "pizza.jpg"},
@@ -8,23 +7,12 @@ const comidas = [
 
 ];
 
-
 const botonBuscar = document.querySelector('#btn-buscar');
 const busqueda = document.createElement('div');
-
-const h2 = document.getElementById("h2");
-h2.innerText= "Eventos";
-
 const h3 = document.getElementById('usuario');
 
 const contenedor = document.getElementById('contenedor');
 
-let ingreso = prompt('Ingresa tu nombre de usuario');
-
-
-
-
-h3.innerText = "Bienvenido " + ingreso + ", estos son nuestros productos";
 
 const ul = document.getElementById('lista');
 
@@ -32,7 +20,7 @@ const ul = document.getElementById('lista');
 for (const servicio of comidas) {
     let li = document.createElement('li');
 
-    li.innerHTML = `
+    li.innerHTML += `
     <div class= "card">
         <h3>${servicio.nombre}</h3>
         <p>precio: ${servicio.precio}</p>
@@ -45,157 +33,79 @@ for (const servicio of comidas) {
 
 
 
-for (const comidass of comidas) {
-    comidass.nombre;
-    console.log(comidas);
+//BUSCADOR
+
+for (const comida of comidas) {
+    comida.nombre;
 }
 
 botonBuscar.addEventListener ('click', (e)=>{
     e.preventDefault();  
     const input = document.getElementById('ingreso').value;
-    function buscadorNombreComida(arr, comidass){
-        let encontrado = arr.find((el)=>{
-            return el.nombre == comidass; 
-        });
-        return encontrado;
+    function buscadorNombreComida(arr, comida){
+        let encontrado = comidas.find(el => el.nombre == input);
+        
+    return encontrado;
     
 }
 
-buscadorNombreComida()
 
-const encontrado = buscadorNombreComida(comidas,input);
+const htmlEncontrado = buscadorNombreComida(comidas,input);
 
-const divEncontrado = document.createElement('div');
+const divEncontrado = document.getElementById('aparecer');
+
 divEncontrado.innerHTML = `
-<div>
-    <h2>Se encuentra ${encontrado.nombre}</h2>
-</div>
+    <h2>Se encuentra ${htmlEncontrado.nombre}</h2>
+
 `
-busqueda.append(divEncontrado);
-console.log(arr);
+divEncontrado.append();
 });
 
 
 
+//  REGISTRO
 
+const btn = document.getElementById ("btnIngresar"), 
+checkbox = document.getElementById("checkbox"),
+email = document.getElementById("email"),
+userRegis = document.getElementById("userRegis"),
+password = document.getElementById("password");
+btn.value = "Registrar";
 
-/* function filtrarComidas(arr, filtro){
-   const filtrado = arr.filter ((el)=>{
-    return el.nombre.includes(filtro);
-   });
-    return filtrado;
-}
+function guardar (Valor){
 
+let user = {username: email.value , password: password.value, usuario: userRegis.value}
 
-botonBuscar.addEventListener("click", ()=>{
-    
-    let resultado = filtrarComidas(comidas.nombre, input.value);
-    console.log(resultado);
-    body.append(busqueda);
-})
- */
-
-
-/* for (const comidass of comidas) {
-        comidass.nombre;
-    } */
-
-
-
-/* botonBuscar.addEventListener ('click', (e)=>{
-    e.preventDefault();   */
-
-
-
- /*    botonBuscar.addEventListener ('click', (e)=>{
-        e.preventDefault();  
-    function buscadorNombreComida(arr, comidass){
-        let encontrado = arr.find((el)=>{
-            return el.nombre == comidass; 
-        });
-        return encontrado;
+    if(Valor == "sessionStorage"){
+        sessionStorage.setItem("user", JSON.stringify(user))
+        h3.innerText = "Bienvenido " + user.usuario+ ", estos son nuestros productos";
     }
-    buscadorNombreComida()
-    
-    const encontrado = buscadorNombreComida(comidas,input);
-    
-    const divEncontrado = document.createElement('div');
-    divEncontrado.innerHTML = `
-    <div>
-        <h2>Se encuentra ${encontrado.nombre}</h2>
-    </div>
-    `
-    busqueda.append(divEncontrado);
-    });
 
-function buscadorNombreComida(arr, comidass){
-    let encontrado = arr.find((el)=>{
-        return el.nombre == comidass; 
-    });
-    return encontrado;
+    if(Valor == "localStorage"){
+        localStorage.setItem("user", JSON.stringify(user))
+        h3.innerText = "Bienvenido " + user.usuario + ", estos son nuestros productos";
+    }
+    return user;
 }
 
-const encontrado = buscadorNombreComida(comidas,input);
 
-const divEncontrado = document.createElement('div');
-divEncontrado.innerHTML = `
-<div>
-    <h2>Se encuentra ${encontrado.nombre}</h2>
-</div>
-`
-busqueda.append(divEncontrado);
-}); */
-
-
-
-
-
-/* botonBuscar.addEventListener ('click', (e)=>{
-    e.preventDefault();  
-function buscadorNombreComida(arr, comidass){
-    let encontrado = arr.find((el)=>{
-        return el.nombre == comidass; 
-    });
-    return encontrado;
-}
-buscadorNombreComida()
-
-const encontrado = buscadorNombreComida(comidas,input);
-
-const divEncontrado = document.createElement('div');
-divEncontrado.innerHTML = `
-<div>
-    <h2>Se encuentra ${encontrado.nombre}</h2>
-</div>
-`
-busqueda.append(divEncontrado);
-}); */
-
-
-
-
-/* botonBuscar.addEventListener ('click', (e)=>{
-    e.preventDefault(); 
-    const input = document.getElementById('ingreso').value; 
-function buscadorNombreComida(arr, comidass){
-    let encontrado = arr.find((el)=>{
-        return el.nombre == comidass; 
-    });
-    return encontrado;
+function recuperarDatos(datos){
+    if (datos){
+        email.value = datos.username;
+        password.value  = datos.password;
+        userRegis.value  = datos.userRegis;
+    }
 }
 
-const encontrado = buscadorNombreComida(comidas,input);
-
-const divEncontrado = document.createElement('div');
-divEncontrado.innerHTML = `
-<div>
-    <h2>Se encuentra ${encontrado.nombre}</h2>
-</div>
-`
-busqueda.append(divEncontrado);
-buscadorNombreComida()
-});
- */
+recuperarDatos(JSON.parse(localStorage.getItem("user")));
 
 
+btn.addEventListener('click',(e)=>{
+    e.preventDefault()
+  if(checkbox.checked){
+    guardar('localStorage');
+  }  else{
+    guardar('sessionStorage');  
+  }
+})
 
