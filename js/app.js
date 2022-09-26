@@ -76,36 +76,48 @@ function guardar (Valor){
 
 let user = {username: email.value , password: password.value, usuario: userRegis.value}
 
-    if(Valor == "sessionStorage"){
+/*     if(Valor == "sessionStorage"){
         sessionStorage.setItem("user", JSON.stringify(user))
         h3.innerText = "Bienvenido " + user.usuario+ ", estos son nuestros productos";
-    }
+    } */
 
-    if(Valor == "localStorage"){
+
+    Valor == "sessionStorage" && sessionStorage.setItem("user", JSON.stringify(user)); h3.innerText = "Bienvenido " + user.usuario+ ", estos son nuestros productos";
+
+
+/*     if(Valor == "localStorage"){
         localStorage.setItem("user", JSON.stringify(user))
         h3.innerText = "Bienvenido " + user.usuario + ", estos son nuestros productos";
-    }
+    } */
+
+    Valor == "localStorage" && localStorage.setItem("user", JSON.stringify(user)); h3.innerText = "Bienvenido " + user.usuario + ", estos son nuestros productos";
+
     return user;
 }
+
+
 
 
 function recuperarDatos(datos){
     if (datos){
         email.value = datos.username;
-        password.value  = datos.password;
         userRegis.value  = datos.userRegis;
-    }
+    } 
+    //no me dejo usar un AND para reducir el codigo
 }
 
 recuperarDatos(JSON.parse(localStorage.getItem("user")));
 
-
-btn.addEventListener('click',(e)=>{
+/* btn.addEventListener('click',(e)=>{
     e.preventDefault()
   if(checkbox.checked){
     guardar('localStorage');
   }  else{
     guardar('sessionStorage');  
   }
-})
+}) */
 
+btn.addEventListener('click',(e)=>{
+    e.preventDefault()
+  checkbox.checked ? guardar('localStorage') : guardar('sessionStorage');
+})
