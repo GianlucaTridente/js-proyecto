@@ -30,7 +30,8 @@ ul{
     border: solid black;
     border-radius: 10px;
     width: fit-content;
-    padding: 10px;
+    padding: 50px;
+    margin: 30px;
 }
 
 .conteiner-busc{
@@ -44,10 +45,16 @@ ul{
      border: solid grey 2px;
      border-radius:  15px;
      width: fit-content;
+} 
+
+
+.regish2{
+    text-align: center;
 }
 
-
-
+.registinput{
+    outline: none;
+}
 
 #ingreso {
     border-radius:  10px;
@@ -56,3 +63,162 @@ ul{
 #btn-buscar{
     border:  none;
 }
+
+.msjError{
+    color: red;
+    margin-top: 0px ;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#btnIngresar{
+    position: relative;
+    display: inline-block;
+    margin: 15px;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #000000;
+    background: transparent;
+    cursor: pointer;
+    transition: ease-out 0.5s;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 0 #000000;
+}
+
+#btnIngresar:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 0 #000000;
+}
+
+#btnIngresar:active {
+    transform: scale(0.9);
+}
+   
+   
+   
+
+
+
+#email {
+    line-height: 28px;
+    border: 2px solid transparent;
+    border-bottom-color: #777;
+    padding: .2rem 0;
+    outline: none;
+    background-color: transparent;
+    color: #0d0c22;
+    transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+#email:focus, #email:hover {
+    outline: none;
+    padding: .2rem 1rem;
+    border-radius: 1rem;
+    border-color: #7a9cc6;
+}
+
+#email::placeholder {
+    color: #777;
+}
+
+#email:focus::placeholder {
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+
+
+#password {
+    line-height: 28px;
+    border: 2px solid transparent;
+    border-bottom-color: #777;
+    padding: .2rem 0;
+    outline: none;
+    background-color: transparent;
+    color: #0d0c22;
+    transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+#password:focus, #password:hover {
+    outline: none;
+    padding: .2rem 1rem;
+    border-radius: 1rem;
+    border-color: #7a9cc6;
+}
+
+#password::placeholder {
+    color: #777;
+}
+
+#password:focus::placeholder {
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+
+
+       
+#userRegis {
+    line-height: 28px;
+    border: 2px solid transparent;
+    border-bottom-color: #777;
+    padding: .2rem 0;
+    outline: none;
+    background-color: transparent;
+    color: #0d0c22;
+    transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+#userRegis:focus, #userRegis:hover {
+    outline: none;
+    padding: .2rem 1rem;
+    border-radius: 1rem;
+    border-color: #7a9cc6;
+}
+
+#userRegis::placeholder {
+    color: #777;
+}
+
+#userRegis:focus::placeholder {
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+
+
+
+
+    #repeatpassword {
+        line-height: 28px;
+        border: 2px solid transparent;
+        border-bottom-color: #777;
+        padding: .2rem 0;
+        outline: none;
+        background-color: transparent;
+        color: #0d0c22;
+        transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+    
+    #repeatpassword:focus, #userRegis:hover {
+        outline: none;
+        padding: .2rem 1rem;
+        border-radius: 1rem;
+        border-color: #7a9cc6;
+    }
+    
+    #repeatpassword::placeholder {
+        color: #777;
+    }
+    
+    #repeatpassword:focus::placeholder {
+        opacity: 0;
+        transition: opacity .3s;
+    }
+
+       

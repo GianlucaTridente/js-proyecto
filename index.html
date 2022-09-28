@@ -13,27 +13,34 @@
     <h3 id="usuario"></h3>
     <div class="registro">
         <form action="">
-            <div>
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email">
+            <h2 class="regish2">Registrate</h2>
+            <div class="regist email">
+                <!-- <label for="email" class="labelRegis">Email:</label> -->
+                <input class="registinput" type="email" placeholder="Email" id="email">
+                <p class="msjError"> </p>
+            </div>
+            <div class="userRegis">
+                <!-- <label for="userRegis" class="labelRegis">Nombre:</label> -->
+                <input type="text" placeholder="Nombre" class="registinput" id="userRegis">
+                <p class="msjError"> </p>
+            </div>
+            <div class="password">
+                <!-- <label for="password" class="labelRegis">Contreseña:</label> -->
+                <input type="password" placeholder="Contraseña" class="registinput" id="password"> 
+                <p class="msjError"> </p>
+            </div>
+            <div class="repeatpassword">
+               <!--  <label for="repeatpassword" class="labelRegis">Repetir Contraseña:</label> -->
+                <input type="password" placeholder="Repetir Contraseña" class="registinput" id="repeatpassword"> 
+                <p class="msjError"> </p>
             </div>
             <div>
-                <label for="userRegis">usuario</label>
-                <input type="text" name="" id="userRegis">
+                <label for="checkbox">Recordar</label>
+                <input type="checkbox" name="" id="checkbox">
             </div>
             <div>
-                <label for="email">Password</label>
-                <input type="password" name="password" id="password"> 
-            </div>
-            <div>
-                <label for="checkbox">
-                    Recordar
-                    <input type="checkbox" name="" id="checkbox">
-                </label>
-            </div>
-            <div>
-                <input type="submit" name="" id="btnIngresar">
-            </div>
+                <input type="submit" id="btnIngresar">
+            </div> 
         </form>
     </div>
     <div class="conteiner-busc">
@@ -47,7 +54,9 @@
     </body>
     <ul id="lista">
     </ul>
-
+<p class="hora"></p>
+<script src="https://cdn.jsdelivr.net/npm/luxon@3.0.4/build/global/luxon.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://kit.fontawesome.com/e5193a5dee.js" crossorigin="anonymous"></script>
 <script src="./js/app.js"></script>
 </body>
