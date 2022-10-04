@@ -9,6 +9,17 @@ body{
     border-radius: 10px;
 }
 
+.card-carrito{
+    -webkit-box-shadow: 0px 0px 24px 5px rgba(5,5,5,0.91); 
+    box-shadow: 0px 0px 24px 5px rgba(5,5,5,0.91);
+    width: fit-content;
+    border-radius: 10px;
+}
+.card-carrito img{
+    width: 10rem;
+   
+}
+
 ul{
     list-style: none;
     display: flex;
