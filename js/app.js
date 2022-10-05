@@ -235,16 +235,14 @@ pedirServicio()
 
 
 
-//AJAZ & FETCH
-
-
 //Async await
 
 const fetchRespuesta = async() => {
     const resultadoResponse = await fetch('./js/data.json');
 
     const data = await resultadoResponse.json();
-    crearCard(data);
+   
+    pedirServicio(data);
 }
 
 fetchRespuesta();
