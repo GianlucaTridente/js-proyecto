@@ -35,7 +35,7 @@ for (const servicio of comidas) {
 }
 agregarFUncionAlBoton()
 }
-crearCard()
+
 
 
 //BUSCADOR
@@ -83,25 +83,13 @@ function guardar (Valor){
 
 let user = {username: email.value , password: password.value, usuario: userRegis.value, repetirCon: repeatpassword.value}
 
-/*     if(Valor == "sessionStorage"){
-        sessionStorage.setItem("user", JSON.stringify(user))
-        h3.innerText = "Bienvenido " + user.usuario+ ", estos son nuestros productos";
-    } */
-
 
     Valor == "sessionStorage" && sessionStorage.setItem("user", JSON.stringify(user)); h3.innerText = "Bienvenido " + user.usuario + ", estos son nuestros productos";
-
-
-/*     if(Valor == "localStorage"){
-        localStorage.setItem("user", JSON.stringify(user))
-        h3.innerText = "Bienvenido " + user.usuario + ", estos son nuestros productos";
-    } */
 
     Valor == "localStorage" && localStorage.setItem("user", JSON.stringify(user)); h3.innerText = "Bienvenido " + user.usuario + ", estos son nuestros productos";
 
     return user;
 }
-
 
 
 
@@ -114,15 +102,8 @@ function recuperarDatos(datos){
 
 recuperarDatos(JSON.parse(localStorage.getItem("user")));
 
-/* btn.addEventListener('click',(e)=>{
-    e.preventDefault()
-  if(checkbox.checked){
-    guardar('localStorage');
-  }  else{
-    guardar('sessionStorage');  
-  }
-}) */
 
+const registrohide = document.querySelector(".registro")
 
 btn.addEventListener('click',(e)=>{
     e.preventDefault()
@@ -133,6 +114,11 @@ if(condicion){
     icon: 'success',
     title: 'Se ha registrado correctamente',
   })
+  setTimeout(()=>{
+    registrohide.classList.add('hide');
+  },1000)
+  
+
 }
   
 
@@ -170,24 +156,6 @@ function mostrarMensajeError(claseInput, mensaje){
 
 
 
-const DateTime = luxon.DateTime;
-
-let dt = DateTime.now();
-console.log(dt);
-console.log(dt.year);
-console.log(dt.month);
-console.log(dt.day);
-
-let dateObj = {month:"long", day: "numeric", year:"numeric"}
-
-const hora = document.querySelector(".hora");
-
-
-
-dt.setLocale("es").toLocaleString(dateObj)
-hora.innerText = `${dt.setLocale('es').toLocaleString(dateObj)}`;
-
-
 // CARRITO
 
 const carritoDIv = document.querySelector("#carritoDiv");
@@ -213,7 +181,6 @@ function agregarAlCarrito(el){
         let prodFInd = carrito.find(prod=> prod.id === el.id);
         prodFInd.cantidad++;
     }
-    console.log(existe);
     renderizarCarrito();
 }
 
@@ -249,3 +216,35 @@ function borrarProd(){
 
 renderizarCarrito()
 
+
+const contenedorCard = document.querySelector('.loader');
+
+const pedirServicio = ()=>{
+    return new Promise ((resolve, reject)=>{
+        setTimeout(() => {
+            resolve(comidas)
+        }, 2500);
+    })
+}
+
+pedirServicio()
+.then(respuesta=>{
+    contenedorCard.textContent="";
+    crearCard()
+})
+
+
+
+//AJAZ & FETCH
+
+
+//Async await
+
+const fetchRespuesta = async() => {
+    const resultadoResponse = await fetch('./js/data.json');
+
+    const data = await resultadoResponse.json();
+    crearCard(data);
+}
+
+fetchRespuesta();

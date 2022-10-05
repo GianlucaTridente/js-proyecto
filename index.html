@@ -15,22 +15,18 @@
         <form action="">
             <h2 class="regish2">Registrate</h2>
             <div class="regist email">
-                <!-- <label for="email" class="labelRegis">Email:</label> -->
                 <input class="registinput" type="email" placeholder="Email" id="email">
                 <p class="msjError"> </p>
             </div>
             <div class="userRegis">
-                <!-- <label for="userRegis" class="labelRegis">Nombre:</label> -->
                 <input type="text" placeholder="Nombre" class="registinput" id="userRegis">
                 <p class="msjError"> </p>
             </div>
             <div class="password">
-                <!-- <label for="password" class="labelRegis">Contreseña:</label> -->
                 <input type="password" placeholder="Contraseña" class="registinput" id="password"> 
                 <p class="msjError"> </p>
             </div>
             <div class="repeatpassword">
-               <!--  <label for="repeatpassword" class="labelRegis">Repetir Contraseña:</label> -->
                 <input type="password" placeholder="Repetir Contraseña" class="registinput" id="repeatpassword"> 
                 <p class="msjError"> </p>
             </div>
@@ -49,13 +45,20 @@
             <button id="btn-buscar" class="fa-solid fa-magnifying-glass"></button>
         </div>
     </div>
+    <div class="loader">
+        <div class="scanner">
+          <h1>Loading...</h1>
+        </div>
+      </div>
     <div id="aparecer"></div>
-
-    </body>
+    
     <ul id="lista">
     </ul>
-<div id="carritoDiv"></div>
-<p class="hora"></p>
+    <div id="carritoDiv"></div>
+    </body>
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/luxon@3.0.4/build/global/luxon.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://kit.fontawesome.com/e5193a5dee.js" crossorigin="anonymous"></script>

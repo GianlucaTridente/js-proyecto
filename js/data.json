@@ -1,0 +1,22 @@
+[
+    {
+       "id":1,
+       "nombre":"HAMBURGUESA",
+       "precio":1292,
+       "peso":1000,
+       "img":"hamburguesa.jpg"
+    },
+    {
+       "id":2,
+       "nombre":"PIZZA",
+       "precio":1300,
+       "peso":700,
+       "img":"pizza.jpg"
+    },
+    {
+       "id":3,
+       "nombre":"PAPAS FRITAS",
+       "precio":1100,
+       "img":"papas-fritas.jpg"
+    }
+ ]
