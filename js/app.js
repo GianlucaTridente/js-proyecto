@@ -2,10 +2,10 @@
 
 
 
-const comidas = [
-    {id: 1, nombre: "HAMBURGUESA", precio: 1292, peso:1000, img: "hamburguesa.jpg"},
-    {id: 2, nombre: "PIZZA", precio : 1300, peso: 700, img: "pizza.jpg"},
-    {id: 3, nombre: "PAPAS FRITAS", precio: 1100, img: "papas-fritas.jpg"},
+const teclados = [
+    {id: 1, nombre: "G213", precio: 9390, peso:"600g", img: "Logitech G213.jpg"},
+    {id: 2, nombre: "G413", precio : 16499, peso: "700g", img: "Logitech G413.jpg"},
+    {id: 3, nombre: "K380", precio: 6990, peso: "300g", img: "Logitech K380.jpg"},
 
 ];
 
@@ -18,7 +18,7 @@ const contenedor = document.getElementById('contenedor');
 const ul = document.getElementById('lista');
 
 function crearCard(){
-for (const servicio of comidas) {
+for (const servicio of teclados) {
     let li = document.createElement('li');
 
     li.innerHTML += `
@@ -27,7 +27,7 @@ for (const servicio of comidas) {
         <p>precio: $${servicio.precio}</p>
         <p>peso:${servicio.peso}</p>
         <img src="./img/${servicio.img}" alt="comida">
-        <button class="btnCarrito" id="btn-agregar${servicio.id}">Agregar</button>
+        <button class="btnCarrito fa-solid fa-cart-shopping"" id="btn-agregar${servicio.id}"></button>
     </div>
     `
     ul.append(li);
@@ -40,30 +40,27 @@ agregarFUncionAlBoton()
 
 //BUSCADOR
 
-for (const comida of comidas) {
-    comida.nombre;
+for (const teclado of teclados) {
+    teclado.nombre;
 }
 
 botonBuscar.addEventListener ('click', (e)=>{
     e.preventDefault();  
     const input = document.getElementById('ingreso').value.toUpperCase();
-    function buscadorNombreComida(arr, comida){
-        let encontrado = comidas.find(el => el.nombre == input);
-        
-    return encontrado;
+
+    function buscadorNombreTeclado(arr, teclado){
+        let encontrado = teclados.find(el => el.nombre == input);
+
+        Swal.fire({
+        icon: 'success',
+        title: 'SE ENCUENTRA SU PRODUCTO DISPONIBLE',
+      })
     
-}
+    return encontrado;
+    }
 
-
-const htmlEncontrado = buscadorNombreComida(comidas,input);
-
-const divEncontrado = document.getElementById('aparecer');
-
-divEncontrado.innerHTML = `
-    <h2>Se encuentra ${htmlEncontrado.nombre.toLowerCase()}</h2>
-
-`
-divEncontrado.append();
+encontrado = buscadorNombreTeclado(teclados,input);
+Swal.fire("Se encuentra disponible: "+ encontrado.nombre);
 });
 
 
@@ -164,7 +161,7 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 
 function agregarFUncionAlBoton(){
-    comidas.forEach(el=>{
+    teclados.forEach(el=>{
         document.querySelector(`#btn-agregar${el.id}`).addEventListener("click",()=>{
             agregarAlCarrito(el );
         })
@@ -188,15 +185,13 @@ function renderizarCarrito(){
     carritoDIv.innerHTML = "";
     carrito.forEach(prod=>{
         carritoDIv.innerHTML += `
-        <h3>SU PEDIDO:${prod.nombre}</h3>
         <div class= "card-carrito">
             <h3>${prod.nombre}</h3>
             <h3>Cantidad: ${prod.cantidad}</h3>
             <p>precio: $${prod.precio*prod.cantidad}</p>
             <p>peso:${prod.peso}</p>
             <img src="./img/${prod.img}" alt="comida">
-            <button class="btnCarrito" id="btn-borrar${prod.id}">Borrar</button>
-        </div>
+            <button class="btnCarrito fa-solid fa-trash" id="btn-borrar${prod.id}"></button>
         `
     })
     localStorage.setItem("carrito", JSON.stringify(carrito))
@@ -222,7 +217,7 @@ const contenedorCard = document.querySelector('.loader');
 const pedirServicio = ()=>{
     return new Promise ((resolve, reject)=>{
         setTimeout(() => {
-            resolve(comidas)
+            resolve(teclados)
         }, 2500);
     })
 }
@@ -246,3 +241,17 @@ const fetchRespuesta = async() => {
 }
 
 fetchRespuesta();
+
+
+//finalizacion
+
+
+const botonFinalizar = document.getElementById('boton-finalizar');
+
+botonFinalizar.addEventListener('click', ()=>{
+    Swal.fire({
+        title: 'Compra en proceso',
+        text: 'Recuerde registrarse ya que le mandaremos la informacion para continuar por ahi',
+      })
+      carrito = [];
+})
