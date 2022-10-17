@@ -1,22 +1,23 @@
 [
     {
        "id":1,
-       "nombre":"HAMBURGUESA",
-       "precio":1292,
-       "peso":1000,
-       "img":"hamburguesa.jpg"
+       "nombre":"G213",
+       "precio":9390,
+       "peso":"600g",
+       "img":"Logitech G213.jpg"
     },
     {
        "id":2,
-       "nombre":"PIZZA",
-       "precio":1300,
-       "peso":700,
-       "img":"pizza.jpg"
+       "nombre":"G413",
+       "precio":16499,
+       "peso":"700g",
+       "img":"Logitech G413.jpg"
     },
     {
        "id":3,
-       "nombre":"PAPAS FRITAS",
-       "precio":1100,
-       "img":"papas-fritas.jpg"
+       "nombre":"K380",
+       "peso": "300g",
+       "precio":6990,
+       "img":"Logitech K380.jpg"
     }
  ]

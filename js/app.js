@@ -255,3 +255,4 @@ botonFinalizar.addEventListener('click', ()=>{
       })
       carrito = [];
 })
+
